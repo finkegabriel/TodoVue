@@ -1,8 +1,8 @@
 <template>
   <div class="todo">
-    <div v-bind:key="todo.id" v-for="todo in todos">
+    <div v-bind:key="todo._id" v-for="todo in todos">
         <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo'
-        ,todo.id)"/>
+        ,todo._id)"/>
    </div>
   </div>
 </template>
@@ -15,6 +15,6 @@ export default {
   components:{
       TodoItem,
   },
-  props:["todos"]
+  props:["todos"],
 }
 </script>

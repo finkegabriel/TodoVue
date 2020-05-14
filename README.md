@@ -1,14 +1,5 @@
-# demoapp
+# todo
 
-## dependencies
-```
-npm install -g @vue/cli
-```
-
-## created using 
-```
-vue create todoapp
-```
 ## Project setup
 ```
 yarn install
