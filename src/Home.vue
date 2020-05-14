@@ -1,5 +1,6 @@
   <template>
   <div id="app">
+    <input type="button" value="logout" @click="logout"/>
     <h3>Home</h3>
     <AddTodo v-on:add-todo="addTodo"/>
     <Todo
@@ -10,6 +11,7 @@
 
 <script>
 import todo from './routes/todo';
+import logout from './routes/user';
 import Todo from './components/todo.vue'
 import AddTodo from './components/AddTodo.vue'
 
@@ -25,13 +27,17 @@ export default {
     }
   },
   methods:{
+    async logout(){
+      await logout.logout();
+      this.$router.push('/');
+    },
     async deleteTodo(id){
       this.todos = this.todos.filter(todo => todo._id !==id);
       await todo.delTodo(id);
     },
     async addTodo(newTodo){
       this.todos = [...this.todos,newTodo];
-      todo.addTodo({text:newTodo.text,date:new Date(),completed:false});
+      await todo.addTodo({text:newTodo.text,date:new Date(),completed:false});
     }
   },
     async created(){
