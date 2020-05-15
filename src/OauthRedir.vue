@@ -4,6 +4,7 @@
 
 <script>
 import client from './lib/client';
+import routeState from './routes/user';
 
 export default {
   methods:{
@@ -12,6 +13,7 @@ export default {
     client.oauthStart().then((res)=>{
         this.oauthData = res.providers;
     })
+    await routeState.validate(this.$route.params.token);
     await client.tokenLogin(this.$route.params.token);
         setTimeout(() => {
     console.log(this.$route.params.token);
