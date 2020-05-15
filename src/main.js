@@ -4,9 +4,12 @@ import Login from './Login.vue';
 import OauthRedir from './OauthRedir.vue';
 import Home from './Home.vue';
 import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
+Vue.use(VueMaterial)
 
 const routes = [
   {path: '/', component: Login},

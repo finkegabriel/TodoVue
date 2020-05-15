@@ -1,9 +1,18 @@
   <template>
+  <center>
   <div id="Login">
-    <h1>OAUTH Login</h1>
     <hr>
-          <input type="button" value="Google" @click="login"/>
+    <center>
+          <md-card>
+          <md-card-content id="Signin">
+              Sign In
+          </md-card-content>
+               <md-button class="md-raised" :md-ripple="true" @click="login">Google
+               </md-button>
+    </md-card>
+    </center>
   </div>
+  </center>
 </template>
 
 <script>
@@ -18,17 +27,22 @@ export default {
   },
   methods:{
      login(){
-          return document.location.href =this.oauthData.google.url;
+          return document.location.href = this.oauthData.google.url;
       }
   },
     async created(){
     client.oauthStart().then((res)=>{
         this.oauthData = res.providers;
-    })
+    });
 }
 }
 </script>
 
 <style>
-
+#Login{
+  width:40%;
+}
+#Signin{
+  font-size: 35px;
+}
 </style>

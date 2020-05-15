@@ -15,11 +15,12 @@ export default {
     })
     await routeState.validate(this.$route.params.token);
     await client.tokenLogin(this.$route.params.token);
-        setTimeout(() => {
+    // await window.history.pushState({token:this.$route.params.token},"token",'/home');
+    setTimeout(() => {
     console.log(this.$route.params.token);
     this.$router.push('/home');
         }, 100);
 
-}
+    }
 }
 </script>

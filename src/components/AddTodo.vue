@@ -1,8 +1,11 @@
 <template>
     <div>
-        <form @submit="addTodo">
-            <input type="text" v-model="text" name="text" placeholder="Add Todo...">
-            <input type="submit" value="Submit" class="btn">
+        <form @submit="addTodo" id="form">
+            <md-field id="text">
+            <md-input v-model="text" placeholder="Add Todo..."></md-input>
+            </md-field>
+            <md-button id="logoutbtn" type="submit" class="md-raised" :md-ripple="true" @click="addTodo">Add
+            </md-button>
         </form>
     </div>
 </template>
@@ -29,3 +32,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+#form{
+    display: flex;
+    width:10vh;
+}
+</style>

@@ -1,11 +1,16 @@
   <template>
   <div id="app">
-    <input type="button" value="logout" @click="logout"/>
-    <h3>Home</h3>
+  <div id="header">
+     <md-button id="logoutbtn" class="md-raised" :md-ripple="true" @click="logout">Logout
+    </md-button>
+  </div>
+    <center>
+    <h3>Todo's</h3>
     <AddTodo v-on:add-todo="addTodo"/>
     <Todo
     v-bind:todos="todos" 
     v-on:del-todo="deleteTodo"/>
+    </center>
   </div>
 </template>
 
@@ -43,7 +48,20 @@ export default {
     async created(){
         const data = await todo.browseTodos();
         this.todos = data;
-        console.log("todo ",this.todos);
-}
+  }
 }
 </script>
+
+<style scoped>
+#header{
+  background-color: grey;
+  height: 8vh;
+}
+#logoutbtn{
+  background-color: white;
+}
+#logout{
+  margin-top: 2vh;
+  margin-left: 3%;
+}
+</style>
