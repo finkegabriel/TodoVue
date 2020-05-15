@@ -13,6 +13,7 @@ export default {
         this.oauthData = res.providers;
     })
     await client.tokenLogin(this.$route.params.token);
+    console.log(this.$route.params.token);
     this.$router.push('/home');
 }
 }
